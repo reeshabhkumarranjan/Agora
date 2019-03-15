@@ -14,6 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".About"
+            android:label="@string/title_activity_about"
+            android:parentActivityName=".Dashboard"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.agora.Dashboard" />
+        </activity>
+        <activity
             android:name=".Profile"
             android:label="@string/title_activity_profile"
             android:parentActivityName=".Dashboard"
