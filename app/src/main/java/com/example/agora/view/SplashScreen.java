@@ -1,9 +1,11 @@
-package com.example.agora;
+package com.example.agora.view;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.agora.R;
 
 public class SplashScreen extends AppCompatActivity {
 

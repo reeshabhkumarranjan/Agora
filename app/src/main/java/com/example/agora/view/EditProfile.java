@@ -1,4 +1,4 @@
-package com.example.agora;
+package com.example.agora.view;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -7,16 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import java.util.ArrayList;
+import com.example.agora.R;
 
-public class About extends AppCompatActivity {
-
-    private ArrayList<String> creditArrayList=new ArrayList();
+public class EditProfile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_edit_profile);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -29,7 +27,6 @@ public class About extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        creditArrayList.add("Freepik");
     }
+
 }
