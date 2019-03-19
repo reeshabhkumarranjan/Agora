@@ -1,5 +1,6 @@
 package com.example.agora.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +23,7 @@ public class Profile extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Profile.this, "Edit profile", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(Profile.this,EditProfile.class));
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -5,8 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.agora.R;
+import com.example.agora.model.Utils;
+
+import org.json.JSONException;
+
+import java.io.IOException;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -18,9 +24,15 @@ public class LoginActivity extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(LoginActivity.this,Dashboard.class);
-                startActivity(intent);
+                EditText usernameEditTextView=(EditText)findViewById(R.id.usernameEditTextView);
+                EditText passwordEditTextView=(EditText)findViewById(R.id.passwordEditTextView);
+                String username=usernameEditTextView.getText().toString();
+                String password=passwordEditTextView.getText().toString();
+                Utils.getInstance().aSyncSignIn(username,password);
             }
         });
+
+
+
     }
 }

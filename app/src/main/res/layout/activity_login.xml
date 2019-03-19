@@ -16,14 +16,14 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/emailEditTextView"
+        app:layout_constraintBottom_toTopOf="@+id/usernameEditTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/agora_logo" />
 
     <EditText
-        android:id="@+id/emailEditTextView"
+        android:id="@+id/usernameEditTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -32,7 +32,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
-        android:hint="@string/prompt_email"
+        android:hint="Username"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/passwordEditTextView"
         app:layout_constraintEnd_toEndOf="parent"
