@@ -18,6 +18,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                //TODO if the user is logged in (loggedIn variable in Utils) then open the Dashboard instead
                 Intent intent=new Intent(SplashScreen.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
