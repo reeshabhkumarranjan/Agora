@@ -15,9 +15,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.agora.R;
+import com.example.agora.controller.LogoutController;
 
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    LogoutController logoutController=new LogoutController(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +73,9 @@ public class Dashboard extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.action_logout) {
+            // logout, open login screen and finish this activity
+            logoutController.requestLogout();
         }
 
         return super.onOptionsItemSelected(item);

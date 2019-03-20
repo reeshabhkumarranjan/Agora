@@ -173,7 +173,6 @@ public class Utils {
             }
         }
     }
-
     // can be called from the controller
     public void signInRequest(String username, String password, Notifiable controller) {
         new SignInTask(controller).execute(username, password);
@@ -279,11 +278,24 @@ public class Utils {
             }
         }
     }
-
     // can be called from the controller
     public void registerRequest(String identifier, String password, String email, String firstName, String lastName, Notifiable controller) {
         // Do not change the order of the parameters sent below
         new RegisterTask(controller).execute(identifier, password, email, firstName, lastName);
+    }
+
+    // does a logout
+    public void logoutRequest(){
+        if(loggedIn){
+            setLoggedIn(false);
+            setToken(null);
+            setAvatarURL(null);
+            setLastName(null);
+            setFirstName(null);
+            setEmail(null);
+            setUsername(null);
+        }
+        clearUserData(); // to write to the disk
     }
 
     /*
