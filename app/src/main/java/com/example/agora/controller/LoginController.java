@@ -1,5 +1,6 @@
 package com.example.agora.controller;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ public final class LoginController extends Notifiable  {
         if(successful){
             Intent intent=new Intent(context, Dashboard.class);
             context.startActivity(intent);
+            ((Activity)context).finish(); // So that pressing back on Dashboard screen doesn't bring the app back to login-screen
         }
         else{
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show();

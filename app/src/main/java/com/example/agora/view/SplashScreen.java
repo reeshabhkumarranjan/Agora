@@ -43,7 +43,7 @@ public class SplashScreen extends AppCompatActivity {
                     startActivity(intent);
                 }
 
-                finish();
+                finish(); // so that the back button doesn't bring back to the SplashScreen
             }
         },delayDuration);
     }
