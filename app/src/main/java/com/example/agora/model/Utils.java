@@ -35,6 +35,273 @@ public class Utils {
     }
 
     /*
+    Various AsyncTasks (because most of our data resides on the servers.
+     */
+
+    // Sends a sign-in reqeuest
+    private static class SignInTask extends AsyncTask<String, Void, Void> {
+
+        Notifiable controller;
+        private String jsonString = null;
+        private int responseCode = 0;
+        private String responseMessage = null;
+
+        public SignInTask(Notifiable controller) {
+            this.controller = controller;
+        }
+
+        @Override
+        protected Void doInBackground(String... strings) {
+
+            try {
+                /*
+                Setting up the URL
+                 */
+                final String baseUrlString = "http://agora-rest-api.herokuapp.com";
+                final String loginPath = "/api/v1/auth/login";
+                String requestType = "POST";
+                String urlString = baseUrlString + loginPath;
+                URL url = new URL(urlString);
+
+                /*
+                Setting the connection
+                 */
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setDoInput(true);
+                connection.setDoOutput(true);
+                connection.setRequestMethod("POST");
+                connection.setRequestProperty("accept", "application/json");
+                connection.setRequestProperty("content-type", "application/json");
+                // Writing raw data to the connection
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(connection.getOutputStream());
+                JSONObject body = new JSONObject();
+                body.put("identifier", strings[0]);
+                body.put("password", strings[1]);
+                String bodyString = body.toString();
+                outputStreamWriter.write(bodyString);
+                outputStreamWriter.close();
+
+
+                /*
+                Setting the response-code and response-message
+                 */
+                responseCode = connection.getResponseCode();
+                responseMessage = connection.getResponseMessage();
+
+                /*
+                Setting the json-string
+                 */
+                String resultString = null;
+                if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                    BufferedInputStream bufferedInputStream = new BufferedInputStream(connection.getInputStream());
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(bufferedInputStream));
+                    StringBuilder stringBuilder = new StringBuilder("");
+                    String currentString = "";
+
+                    while ((currentString = bufferedReader.readLine()) != null) {
+                        stringBuilder.append(currentString);
+                    }
+
+                    bufferedReader.close();
+
+                    resultString = stringBuilder.toString();
+                    jsonString = resultString;
+                } else {
+                    jsonString = "";
+                }
+            } catch (IOException e) {
+                e.printStackTrace(); // for debugging purposes
+            } catch (JSONException e) {
+                e.printStackTrace(); // for debugging purposes
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                /*
+                Extracting information from JSON and opening Dasboard
+                 */
+                try {
+
+                    // Parsing JSON received from the server
+                    JSONObject root = new JSONObject(jsonString);
+                    String username = root.getString("username");
+                    String email = root.getString("email");
+                    String firstName = root.getString("firstName");
+                    String lastName = root.getString("lastName");
+                    String avatarURL=null;
+                    if(root.has("avatarURL")){
+                        avatarURL = root.getString("avatarURL");
+                    }
+                    JSONObject tokenObject=root.getJSONObject("token");
+                    String token=tokenObject.getString("token");
+
+                    // Setting fields in the Utils class
+                    Utils utils = Utils.getInstance();
+                    utils.setUsername(username);
+                    utils.setEmail(email);
+                    utils.setFirstName(firstName);
+                    utils.setLastName(lastName);
+                    utils.setAvatarURL(avatarURL);
+                    utils.setToken(token);
+
+                    Utils.getInstance().setLoggedIn(true);
+                    controller.makeToast("Login successful!");
+                    controller.notify(true, "Login successful!");
+
+                    //TODO use shared preferences to save the credential and logged-in data
+
+                } catch (JSONException e) {
+                    // Ofcourse, the JSON parsing failed
+                    controller.notify(false, "Internal error, try again later.");
+                }
+            } else if (responseCode == HttpURLConnection.HTTP_FORBIDDEN) {
+                /*
+                A toast should be generated about improper credentials
+                 */
+                controller.notify(false, "Invalid credentials!");
+            } else {
+                /*
+                A toast message should be generated about internal-error
+                 */
+                controller.notify(false, "Internal error, try again later.");
+            }
+        }
+    }
+
+    // can be called from the controller
+    public void signInRequest(String username, String password, Notifiable controller) {
+        new SignInTask(controller).execute(username, password);
+    }
+
+    // Sends a register request
+    private static class RegisterTask extends AsyncTask<String, Void, Void> {
+
+        Notifiable controller;
+        private String jsonString = null;
+        private int responseCode = 0;
+        private String responseMessage = null;
+
+        public RegisterTask(Notifiable controller) {
+            this.controller = controller;
+        }
+
+        @Override
+        protected Void doInBackground(String... strings) {
+
+            try {
+                /*
+                Setting up the URL
+                 */
+                final String baseUrlString = Utils.getInstance().getBaseUrlString();
+                final String loginPath = Utils.getInstance().getRegisterPath();
+                String requestType = "POST";
+                String urlString = baseUrlString + loginPath;
+                URL url = new URL(urlString);
+
+                /*
+                Setting the connection
+                 */
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setDoInput(true);
+                connection.setDoOutput(true);
+                connection.setRequestMethod(requestType);
+                connection.setRequestProperty("Accept", "application/json");
+                connection.setRequestProperty("Content-Type", "application/json");
+                // Writing raw data to the connection
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(connection.getOutputStream());
+                JSONObject body = new JSONObject();
+                body.put("identifier", strings[0]);
+                body.put("password", strings[1]);
+                body.put("email", strings[2]);
+                body.put("firstName", strings[3]);
+                body.put("lastName", strings[4]);
+                String bodyString = body.toString();
+                outputStreamWriter.write(bodyString);
+                outputStreamWriter.close();
+
+
+                /*
+                Setting the response-code and response-message
+                 */
+                responseCode = connection.getResponseCode();
+                responseMessage = connection.getResponseMessage();
+
+                /*
+                Setting the json-string
+                 */
+                String resultString = null;
+                if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
+                    BufferedInputStream bufferedInputStream = new BufferedInputStream(connection.getInputStream());
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(bufferedInputStream));
+                    StringBuilder stringBuilder = new StringBuilder("");
+                    String currentString = "";
+
+                    while ((currentString = bufferedReader.readLine()) != null) {
+                        stringBuilder.append(currentString);
+                    }
+
+                    bufferedReader.close();
+
+                    resultString = stringBuilder.toString();
+                    jsonString = resultString;
+                } else {
+                    jsonString = "";
+                }
+            } catch (IOException e) {
+                e.printStackTrace(); // for debugging purposes
+            } catch (JSONException e) {
+                e.printStackTrace(); // for debugging purposes
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                /*
+                This means no conflict (otherwise responseCode would have been 409)
+                 */
+                controller.notify(true, jsonString);
+
+            } else if(responseCode==HttpURLConnection.HTTP_CONFLICT){
+                controller.notify(false,"The user already exists!");
+            }else {
+                /*
+                A toast message should be generated about internal-error
+                 */
+                controller.notify(false, "Internal error, try again later.");
+            }
+        }
+    }
+
+    // can be called from the controller
+    public void registerRequest(String identifier, String password, String email, String firstName, String lastName, Notifiable controller) {
+        // Do not change the order of the parameters sent below
+        new RegisterTask(controller).execute(identifier, password, email, firstName, lastName);
+    }
+
+    /*
+    User-related information
+     */
+    private boolean loggedIn;
+    private String token;
+    private String username;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String avatarURL;
+
+    /*
+    API-related information
+     */
+    private final String baseUrlString = "http://agora-rest-api.herokuapp.com";
+    private final String loginPath = "/api/v1/auth/login";
+    private final String registerPath = "/api/v1/auth/signup";
+
+    /*
     Getters
      */
 
@@ -68,6 +335,10 @@ public class Utils {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getRegisterPath() {
+        return registerPath;
     }
 
     public String getAvatarURL() {
@@ -106,160 +377,5 @@ public class Utils {
         this.avatarURL = avatarURL;
     }
 
-    /*
-    Various AsyncTasks (because most of our data resides on the servers.
-     */
 
-    public static class SignInTask extends AsyncTask<String, Void, Void>{
-
-        Notifiable controller;
-        private String jsonString=null;
-        private int responseCode=0;
-        private String responseMessage =null;
-
-        public SignInTask(Notifiable controller) {
-            this.controller = controller;
-        }
-
-        @Override
-        protected Void doInBackground(String... strings) {
-
-            try{
-                /*
-                Setting up the URL
-                 */
-                final String baseUrlString = "http://agora-rest-api.herokuapp.com";
-                final String loginPath = "/api/v1/auth/login";
-                String requestType = "POST";
-                String urlString = baseUrlString + loginPath;
-                URL url = new URL(urlString);
-
-                /*
-                Setting the connection
-                 */
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setDoInput(true);
-                connection.setDoOutput(true);
-                connection.setRequestMethod("POST");
-                connection.setRequestProperty("accept", "application/json");
-                connection.setRequestProperty("content-type", "application/json");
-                // Writing raw data to the connection
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(connection.getOutputStream());
-                JSONObject body = new JSONObject();
-                body.put("identifier", strings[0]);
-                body.put("password", strings[1]);
-                String bodyString=body.toString();
-                outputStreamWriter.write(bodyString);
-                outputStreamWriter.close();
-
-
-                /*
-                Setting the response-code and response-message
-                 */
-                responseCode=connection.getResponseCode();
-                responseMessage =connection.getResponseMessage();
-
-                /*
-                Setting the json-string
-                 */
-                String resultString = null;
-                if (connection.getResponseCode()== HttpURLConnection.HTTP_OK) {
-                    BufferedInputStream bufferedInputStream = new BufferedInputStream(connection.getInputStream());
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(bufferedInputStream));
-                    StringBuilder stringBuilder = new StringBuilder("");
-                    String currentString = "";
-
-                    while ((currentString = bufferedReader.readLine()) != null) {
-                        stringBuilder.append(currentString);
-                    }
-
-                    bufferedReader.close();
-
-                    resultString = stringBuilder.toString();
-                    jsonString=resultString;
-                }
-                else {
-                    jsonString="";
-                }
-            } catch (IOException e) {
-                e.printStackTrace(); // for debugging purposes
-            } catch (JSONException e) {
-                e.printStackTrace(); // for debugging purposes
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            if(responseCode==HttpURLConnection.HTTP_OK){
-                /*
-                Extracting information from JSON and opening Dasboard
-                 */
-                try {
-
-                    // Parsing JSON received from the server
-                    JSONObject root=new JSONObject(jsonString);
-                    String username=root.getString("username");
-                    String email=root.getString("email");
-                    String firstName=root.getString("firstName");
-                    String lastName=root.getString("lastName");
-                    String avatarURL=root.getString("avatarURL");
-                    String token=root.getString("token");
-
-                    // Setting fields in the Utils class
-                    Utils utils=Utils.getInstance();
-                    utils.setUsername(username);
-                    utils.setEmail(email);
-                    utils.setFirstName(firstName);
-                    utils.setLastName(lastName);
-                    utils.setAvatarURL(avatarURL);
-                    utils.setToken(token);
-
-                    controller.makeToast("Login successful!");
-                    controller.notify(true,"Login successful!");
-
-                    //TODO use shared preferences to save the credential and logged-in data
-
-                } catch (JSONException e) {
-                    // Ofcourse, the JSON parsing failed
-                    controller.notify(false,"Internal error, try again later.");
-                }
-            }
-            else if (responseCode==HttpURLConnection.HTTP_FORBIDDEN){
-                /*
-                A toast should be generated about improper credentials
-                 */
-                controller.notify(false,"Invalid credentials!");
-            }
-
-            else {
-                /*
-                A toast message should be generated about internal-error
-                 */
-                controller.notify(false,"Internal error, try again later.");
-            }
-        }
-    }
-
-    /*
-    User-related information
-     */
-    private boolean loggedIn;
-    private String token;
-    private String username;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String avatarURL;
-
-    /*
-    API-related information
-     */
-    private final String baseUrlString = "http://agora-rest-api.herokuapp.com";
-    private final String loginPath = "/api/v1/auth/login";
-
-    // can be called from the controller
-    public void signInRequest(String username, String password, Notifiable controller){
-        new SignInTask(controller).execute(username,password);
-    }
 }

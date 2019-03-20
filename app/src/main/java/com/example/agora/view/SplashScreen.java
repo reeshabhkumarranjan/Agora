@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.agora.R;
+import com.example.agora.model.Utils;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -19,8 +20,16 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 //TODO if the user is logged in (loggedIn variable in Utils) then open the Dashboard instead
-                Intent intent=new Intent(SplashScreen.this,LoginActivity.class);
-                startActivity(intent);
+
+                if(Utils.getInstance().isLoggedIn()){
+                    Intent intent=new Intent(SplashScreen.this,Dashboard.class);
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent=new Intent(SplashScreen.this,LoginActivity.class);
+                    startActivity(intent);
+                }
+
                 finish();
             }
         },delayDuration);
