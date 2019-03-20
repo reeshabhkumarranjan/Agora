@@ -1,12 +1,10 @@
 package com.example.agora.model;
 
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
-
 import com.example.agora.controller.Notifiable;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -148,6 +146,11 @@ public class Utils {
                     utils.setToken(token);
 
                     Utils.getInstance().setLoggedIn(true);
+
+                    // Reset user-data
+                    Utils.getInstance().clearUserData();
+                    Utils.getInstance().saveUserData();
+
                     controller.makeToast("Login successful!");
                     controller.notify(true, "Login successful!");
 
@@ -293,6 +296,7 @@ public class Utils {
     private String lastName;
     private String email;
     private String avatarURL;
+    private static SharedPreferences sharedPreferences;
 
     /*
     API-related information
@@ -300,6 +304,45 @@ public class Utils {
     private final String baseUrlString = "http://agora-rest-api.herokuapp.com";
     private final String loginPath = "/api/v1/auth/login";
     private final String registerPath = "/api/v1/auth/signup";
+
+    /*
+    Using shared preferences to save login-information to the device.
+     */
+
+    // initiating a sharedPreference object (from the Splash-screen)
+    public static void setSharedPreferences(SharedPreferences sharedPreferences){
+        Utils.sharedPreferences=sharedPreferences;
+    }
+
+    // saving user-data
+    public void saveUserData(){
+        sharedPreferences.edit().putBoolean("loggedIn",loggedIn).commit();
+        sharedPreferences.edit().putString("token",token).commit();
+        sharedPreferences.edit().putString("username",username).commit();
+        sharedPreferences.edit().putString("firstName",firstName).commit();
+        sharedPreferences.edit().putString("lastName",lastName).commit();
+        sharedPreferences.edit().putString("email",email).commit();
+        sharedPreferences.edit().putString("avatarURL",avatarURL).commit();
+    }
+
+    // load user-data
+    public void loadUserData(){
+        loggedIn=sharedPreferences.getBoolean("loggedIn",false);
+
+        if(loggedIn){
+            token=sharedPreferences.getString("token",null);
+            username=sharedPreferences.getString("username",null);
+            firstName=sharedPreferences.getString("firstName",null);
+            lastName=sharedPreferences.getString("lastName",null);
+            email=sharedPreferences.getString("email",null);
+            avatarURL=sharedPreferences.getString("avatarURL",null);
+        }
+    }
+
+    // clear user-data
+    public void clearUserData(){
+        sharedPreferences.edit().clear().commit();
+    }
 
     /*
     Getters
