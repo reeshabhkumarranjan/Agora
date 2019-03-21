@@ -6,9 +6,15 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.agora.R;
+import com.example.agora.model.Utils;
+import com.squareup.picasso.Picasso;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Profile extends AppCompatActivity {
 
@@ -27,6 +33,26 @@ public class Profile extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        /*
+        Loading user data
+         */
+
+        // Loading profile picture
+        CircleImageView profileCircularImageView=(CircleImageView)findViewById(R.id.profileCircularImageVIew);
+        Picasso.get().load(Utils.getInstance().getAvatarURL()).into(profileCircularImageView);
+
+        // Loading full name
+        TextView fullNameTextView=(TextView)findViewById(R.id.fullNameTextView);
+        fullNameTextView.setText(Utils.getInstance().getFirstName()+" "+Utils.getInstance().getLastName());
+
+        // Loading username
+        TextView usernameTextView=(TextView)findViewById(R.id.usernameTextView);
+        usernameTextView.setText("USERNAME: "+Utils.getInstance().getUsername());
+
+        // Loading email
+        TextView emailTextView=(TextView)findViewById(R.id.emailTextView);
+        emailTextView.setText("EMAIL: "+Utils.getInstance().getEmail());
     }
 
 }
