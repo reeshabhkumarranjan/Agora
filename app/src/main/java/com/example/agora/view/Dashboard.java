@@ -24,7 +24,7 @@ import com.squareup.picasso.Picasso;
 public class Dashboard extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    LogoutController logoutController=new LogoutController(this);
+    LogoutController logoutController = new LogoutController(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,23 @@ public class Dashboard extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        /*
+        Setting navigation view information of the user
+         */
+
+        // Setting profile picture
+        View headerView = navigationView.getHeaderView(0);
+        ImageView navHeaderImageView = (ImageView) headerView.findViewById(R.id.navHeaderImageView);
+        Picasso.get().load(Utils.getInstance().getAvatarURL()).into(navHeaderImageView);
+
+        // Setting name
+        TextView navHeaderNameTextView = (TextView) headerView.findViewById(R.id.navHeaderNameTextView);
+        navHeaderNameTextView.setText(Utils.getInstance().getFirstName() + " " + Utils.getInstance().getLastName());
+
+        // Setting email
+        TextView navHeaderEmailTextView = (TextView) headerView.findViewById(R.id.navHeaderEmailTextView);
+        navHeaderEmailTextView.setText(Utils.getInstance().getEmail());
     }
 
     @Override
