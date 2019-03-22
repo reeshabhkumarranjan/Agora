@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class Utils {
 
@@ -299,8 +300,33 @@ public class Utils {
     }
 
     /*
-    User-related information
+    Placeholder data
      */
+
+    // list of candidates
+    private ArrayList<Candidate> candidateArrayList;
+
+    // prepare candidate array list
+    private void setupCandidateArrayList(){
+        candidateArrayList=new ArrayList<>();
+        candidateArrayList.add(new Candidate("John"));
+        candidateArrayList.add(new Candidate("Chloe"));
+        candidateArrayList.add(new Candidate("Joe"));
+        candidateArrayList.add(new Candidate("Emily"));
+        candidateArrayList.add(new Candidate("Scott"));
+    }
+
+    // getter for candidate array list
+    public ArrayList<Candidate> getCandidateArrayList() {
+        if (candidateArrayList==null){
+            setupCandidateArrayList();
+        }
+        return candidateArrayList;
+    }
+
+    /*
+        User-related information
+         */
     private boolean loggedIn;
     private String token;
     private String username;
