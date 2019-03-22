@@ -20,6 +20,8 @@ public class Vote extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vote);
+        getSupportActionBar().setTitle("Vote");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ArrayList<Candidate> candidateArrayList= Utils.getInstance().getCandidateArrayList();
         CandidateAdapter candidateAdapter=new CandidateAdapter(this,R.layout.candidate_list_item,candidateArrayList);

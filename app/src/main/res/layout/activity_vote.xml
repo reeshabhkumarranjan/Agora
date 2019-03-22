@@ -222,7 +222,7 @@
         <ListView
             android:id="@+id/candidateListView"
             android:layout_width="0dp"
-            android:layout_height="310dp"
+            android:layout_height="249dp"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
