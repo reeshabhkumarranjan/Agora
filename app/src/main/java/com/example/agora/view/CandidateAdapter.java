@@ -1,3 +1,7 @@
+/*
+Reference: https://guides.codepath.com/android/Using-an-ArrayAdapter-with-ListView
+ */
+
 package com.example.agora.view;
 
 import android.content.Context;
@@ -14,8 +18,9 @@ import com.example.agora.model.Candidate;
 import java.util.List;
 
 public final class CandidateAdapter extends ArrayAdapter {
-    public CandidateAdapter(Context context, int resource, int textViewResourceId, List objects) {
-        super(context, resource, textViewResourceId, objects);
+
+    public CandidateAdapter(Context context, int resource, List objects) {
+        super(context, resource, objects);
     }
 
     @Override
@@ -27,7 +32,7 @@ public final class CandidateAdapter extends ArrayAdapter {
         }
 
         final TextView candidateNameTextView=(TextView)convertView.findViewById(R.id.candidateNameTextView);
-        TextView candidateScoreTextView=(TextView)convertView.findViewById(R.id.candidateScoreTextView);
+        final TextView candidateScoreTextView=(TextView)convertView.findViewById(R.id.candidateScoreTextView);
         SeekBar candidateScoreSeekBar=(SeekBar)convertView.findViewById(R.id.candidateScoreSeekBar);
 
         candidateNameTextView.setText(candidate.getName());
@@ -41,7 +46,7 @@ public final class CandidateAdapter extends ArrayAdapter {
                 if(fromUser){
                     candidate.setScore(progress);
                 }
-                candidateNameTextView.setText(""+progress);
+                candidateScoreTextView.setText(""+progress);
             }
 
             @Override
