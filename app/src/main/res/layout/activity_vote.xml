@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:background="@color/colorAccent">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -17,7 +17,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:background="@android:color/white"
+            android:background="@color/colorBackground"
             android:elevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +45,7 @@
                     android:layout_gravity="center_vertical"
                     android:padding="8dp"
                     android:text="Election detail"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:textSize="24dp" />
             </android.support.v7.widget.CardView>
 
@@ -57,6 +57,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
                 android:text="Description"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/electionDetailsHeaderCardView" />
@@ -74,6 +75,7 @@
                 android:scrollHorizontally="true"
                 android:text="@string/medium_text"
                 android:textSize="12sp"
+                android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/electionDescriptionTextView" />
@@ -100,6 +102,7 @@
                 android:layout_marginLeft="8dp"
                 android:text="Important"
                 android:textSize="18sp"
+                android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/electionDescriptionTextView"
                 app:layout_constraintStart_toEndOf="@+id/view"
                 app:layout_constraintTop_toTopOf="@+id/electionDescriptionTextView" />
@@ -112,6 +115,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Start:"
+                android:textColor="@android:color/white"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/view"
                 app:layout_constraintTop_toBottomOf="@+id/importantHeaderTextView" />
@@ -124,6 +128,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Finish:"
+                android:textColor="@android:color/white"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/view"
                 app:layout_constraintTop_toBottomOf="@+id/startLabelTextView" />
@@ -136,6 +141,7 @@
                 android:layout_marginRight="8dp"
                 android:text=" 23/03/2019, 00:00:00"
                 android:textSize="12sp"
+                android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/startLabelTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/startLabelTextView" />
@@ -148,6 +154,7 @@
                 android:layout_marginRight="8dp"
                 android:text="30/03/2019, 00:00:00"
                 android:textSize="12sp"
+                android:textColor="@android:color/white"
                 app:layout_constraintBottom_toBottomOf="@+id/finishLabelTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/finishLabelTextView" />
@@ -160,6 +167,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Status:"
+                android:textColor="@android:color/white"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/view"
                 app:layout_constraintTop_toBottomOf="@+id/finishLabelTextView" />
@@ -171,6 +179,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:text="Finish"
+                android:textColor="@android:color/white"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/statusLabelTextView"
                 app:layout_constraintStart_toEndOf="@+id/statusLabelTextView"
@@ -186,7 +195,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@android:color/white"
+        android:background="@color/colorBackground"
         android:elevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -215,7 +224,7 @@
                 android:layout_gravity="center_vertical"
                 android:padding="8dp"
                 android:text="Election candidates"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="24dp" />
         </android.support.v7.widget.CardView>
 
@@ -234,6 +243,7 @@
 
         <Button
             android:id="@+id/cancelButton"
+            style="@style/buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -245,6 +255,7 @@
 
         <Button
             android:id="@+id/voteButton"
+            style="@style/buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
