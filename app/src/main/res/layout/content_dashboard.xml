@@ -21,7 +21,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView12" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView12" >
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:elevation="16dp"
+            android:background="@drawable/finished_elections" />
+    </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView12"
@@ -36,7 +46,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView11" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView11" >
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:elevation="16dp"
+            android:background="@drawable/active_elections" />
+    </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView10"
@@ -52,7 +72,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:elevation="16dp"
+            android:background="@drawable/total_elections" />
+    </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView11"
@@ -67,5 +97,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView10" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView10" >
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:elevation="16dp"
+            android:background="@drawable/pending_elections" />
+    </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>
