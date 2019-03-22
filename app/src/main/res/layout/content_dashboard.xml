@@ -9,7 +9,7 @@
     tools:showIn="@layout/app_bar_dashboard">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView13"
+        android:id="@+id/finishedElectionsCardView"
         android:layout_width="350dp"
         android:layout_height="150dp"
         android:layout_marginStart="8dp"
@@ -21,7 +21,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView12" >
+        app:layout_constraintTop_toBottomOf="@+id/activeElectionsCardView" >
+
+        <TextView
+            android:id="@+id/finishedElectionsCountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="48dp"
+            android:layout_marginRight="48dp"
+            android:text="3"
+            android:textSize="64dp" />
 
         <ImageView
             android:id="@+id/imageView5"
@@ -31,10 +41,20 @@
             android:layout_marginLeft="12dp"
             android:elevation="16dp"
             android:background="@drawable/finished_elections" />
+
+        <TextView
+            android:id="@+id/finishedElectionsHeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Finished Elections"
+            android:textSize="24dp" />
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView12"
+        android:id="@+id/activeElectionsCardView"
         android:layout_width="350dp"
         android:layout_height="150dp"
         android:layout_marginStart="8dp"
@@ -42,11 +62,21 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:cardElevation="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView13"
+        app:layout_constraintBottom_toTopOf="@+id/finishedElectionsCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView11" >
+        app:layout_constraintTop_toBottomOf="@+id/pendingElectionsCardView" >
+
+        <TextView
+            android:id="@+id/activeElectionsCountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="48dp"
+            android:layout_marginRight="48dp"
+            android:text="1"
+            android:textSize="64dp" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -56,10 +86,20 @@
             android:layout_marginLeft="12dp"
             android:elevation="16dp"
             android:background="@drawable/active_elections" />
+
+        <TextView
+            android:id="@+id/activeElectionsHeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Active Elections"
+            android:textSize="24dp" />
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView10"
+        android:id="@+id/totalElectionsCardView"
         android:layout_width="350dp"
         android:layout_height="150dp"
         android:layout_marginStart="8dp"
@@ -68,7 +108,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:cardElevation="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView11"
+        app:layout_constraintBottom_toTopOf="@+id/pendingElectionsCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -82,10 +122,30 @@
             android:layout_marginLeft="12dp"
             android:elevation="16dp"
             android:background="@drawable/total_elections" />
+
+        <TextView
+            android:id="@+id/totalElectionsHeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Total Elections"
+            android:textSize="24dp" />
+
+        <TextView
+            android:id="@+id/totalElectionsCountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="48dp"
+            android:layout_marginRight="48dp"
+            android:text="2"
+            android:textSize="64dp" />
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
-        android:id="@+id/cardView11"
+        android:id="@+id/pendingElectionsCardView"
         android:layout_width="350dp"
         android:layout_height="150dp"
         android:layout_marginStart="8dp"
@@ -93,11 +153,21 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:cardElevation="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView12"
+        app:layout_constraintBottom_toTopOf="@+id/activeElectionsCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView10" >
+        app:layout_constraintTop_toBottomOf="@+id/totalElectionsCardView" >
+
+        <TextView
+            android:id="@+id/pendingElectionsCountTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="48dp"
+            android:layout_marginRight="48dp"
+            android:text="4"
+            android:textSize="64dp" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -107,5 +177,15 @@
             android:layout_marginLeft="12dp"
             android:elevation="16dp"
             android:background="@drawable/pending_elections" />
+
+        <TextView
+            android:id="@+id/pendingElectionsHeaderTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:text="Pending Elections"
+            android:textSize="24dp" />
     </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>
