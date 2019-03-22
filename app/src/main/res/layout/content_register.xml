@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".view.Register"
-    tools:showIn="@layout/activity_register">
+    tools:showIn="@layout/activity_register"
+    android:background="@color/colorBackground">
 
     <EditText
         android:id="@+id/usernameEditText"
