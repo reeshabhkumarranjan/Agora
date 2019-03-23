@@ -33,5 +33,6 @@ public class About extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         creditArrayList.add("Freepik");
+        creditArrayList.add("Smashicons");
     }
 }

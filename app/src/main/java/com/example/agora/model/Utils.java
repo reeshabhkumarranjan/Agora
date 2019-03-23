@@ -134,6 +134,9 @@ public class Utils {
                     if(root.has("avatarURL")){
                         avatarURL = root.getString("avatarURL");
                     }
+                    else{
+                        avatarURL = "http://i.imgur.com/VCTSYyU.png";
+                    }
                     JSONObject tokenObject=root.getJSONObject("token");
                     String token=tokenObject.getString("token");
 
