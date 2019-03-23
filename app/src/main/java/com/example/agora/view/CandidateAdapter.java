@@ -36,7 +36,7 @@ public final class CandidateAdapter extends ArrayAdapter {
         SeekBar candidateScoreSeekBar=(SeekBar)convertView.findViewById(R.id.candidateScoreSeekBar);
 
         candidateNameTextView.setText(candidate.getName());
-        candidateScoreTextView.setText(""+candidate.getScore());
+        candidateScoreTextView.setText(""+candidate.getScore()+"/100");
         candidateScoreSeekBar.setProgress(candidate.getScore());
         candidateScoreSeekBar.setMax(100);
 
@@ -46,7 +46,7 @@ public final class CandidateAdapter extends ArrayAdapter {
                 if(fromUser){
                     candidate.setScore(progress);
                 }
-                candidateScoreTextView.setText(""+progress);
+                candidateScoreTextView.setText(""+progress+"/100");
             }
 
             @Override

@@ -176,14 +176,14 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="30dp"
                 android:text="Finish"
                 android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/statusLabelTextView"
                 app:layout_constraintStart_toEndOf="@+id/statusLabelTextView"
-                app:layout_constraintTop_toTopOf="@+id/statusLabelTextView" />
+                app:layout_constraintTop_toTopOf="@+id/statusLabelTextView"
+                app:layout_constraintVertical_bias="0.0" />
         </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
