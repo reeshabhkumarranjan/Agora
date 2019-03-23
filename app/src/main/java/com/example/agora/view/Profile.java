@@ -2,6 +2,7 @@ package com.example.agora.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -39,8 +40,9 @@ public class Profile extends AppCompatActivity {
          */
 
         // Loading profile picture
-//        CircleImageView profileCircularImageView=(CircleImageView)findViewById(R.id.profileCircularImageVIew);
-//        Picasso.get().load(Utils.getInstance().getAvatarURL()).into(profileCircularImageView);
+        ConstraintLayout headerConstraintLayout=(ConstraintLayout)findViewById(R.id.headerConstraintLayout);
+        CircleImageView profileCircleImageView=(CircleImageView)headerConstraintLayout.findViewById(R.id.profileCircleImageView);
+        Picasso.get().load(Utils.getInstance().getAvatarURL()).into(profileCircleImageView);
 
         // Loading full name
         TextView fullNameTextView=(TextView)findViewById(R.id.fullNameTextView);
