@@ -17,7 +17,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
-            android:background="@color/colorBackground"
+            android:background="@android:color/white"
             android:elevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
                 android:text="Description"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/electionDetailsHeaderCardView" />
@@ -75,7 +75,7 @@
                 android:scrollHorizontally="true"
                 android:text="@string/medium_text"
                 android:textSize="12sp"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/electionDescriptionTextView" />
@@ -102,7 +102,7 @@
                 android:layout_marginLeft="8dp"
                 android:text="Important"
                 android:textSize="18sp"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="@+id/electionDescriptionTextView"
                 app:layout_constraintStart_toEndOf="@+id/view"
                 app:layout_constraintTop_toTopOf="@+id/electionDescriptionTextView" />
@@ -115,7 +115,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Start:"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/view"
                 app:layout_constraintTop_toBottomOf="@+id/importantHeaderTextView" />
@@ -128,7 +128,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Finish:"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/view"
                 app:layout_constraintTop_toBottomOf="@+id/startLabelTextView" />
@@ -141,7 +141,7 @@
                 android:layout_marginRight="8dp"
                 android:text=" 23/03/2019, 00:00:00"
                 android:textSize="12sp"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="@+id/startLabelTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/startLabelTextView" />
@@ -154,7 +154,7 @@
                 android:layout_marginRight="8dp"
                 android:text="30/03/2019, 00:00:00"
                 android:textSize="12sp"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="@+id/finishLabelTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/finishLabelTextView" />
@@ -167,7 +167,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:text="Status:"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_constraintStart_toEndOf="@+id/view"
                 app:layout_constraintTop_toBottomOf="@+id/finishLabelTextView" />
@@ -179,7 +179,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:text="Finish"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/statusLabelTextView"
                 app:layout_constraintStart_toEndOf="@+id/statusLabelTextView"
@@ -195,7 +195,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorBackground"
+        android:background="@android:color/white"
         android:elevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
