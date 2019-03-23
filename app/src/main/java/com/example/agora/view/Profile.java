@@ -39,8 +39,8 @@ public class Profile extends AppCompatActivity {
          */
 
         // Loading profile picture
-        CircleImageView profileCircularImageView=(CircleImageView)findViewById(R.id.profileCircularImageVIew);
-        Picasso.get().load(Utils.getInstance().getAvatarURL()).into(profileCircularImageView);
+//        CircleImageView profileCircularImageView=(CircleImageView)findViewById(R.id.profileCircularImageVIew);
+//        Picasso.get().load(Utils.getInstance().getAvatarURL()).into(profileCircularImageView);
 
         // Loading full name
         TextView fullNameTextView=(TextView)findViewById(R.id.fullNameTextView);
@@ -48,11 +48,11 @@ public class Profile extends AppCompatActivity {
 
         // Loading username
         TextView usernameTextView=(TextView)findViewById(R.id.usernameTextView);
-        usernameTextView.setText("USERNAME: "+Utils.getInstance().getUsername());
+        usernameTextView.setText(Utils.getInstance().getUsername());
 
         // Loading email
         TextView emailTextView=(TextView)findViewById(R.id.emailTextView);
-        emailTextView.setText("EMAIL: "+Utils.getInstance().getEmail());
+        emailTextView.setText(Utils.getInstance().getEmail());
     }
 
 }
