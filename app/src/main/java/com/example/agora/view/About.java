@@ -6,6 +6,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.example.agora.R;
 
@@ -34,5 +36,10 @@ public class About extends AppCompatActivity {
 
         creditArrayList.add("Freepik");
         creditArrayList.add("Smashicons");
+
+        // populating credits list
+        ListView creditsListView=(ListView)findViewById(R.id.creditsListView);
+        ArrayAdapter<String> stringArrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,creditArrayList);
+        creditsListView.setAdapter(stringArrayAdapter);
     }
 }

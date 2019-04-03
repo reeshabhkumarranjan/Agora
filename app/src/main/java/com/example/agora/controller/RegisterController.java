@@ -19,6 +19,7 @@ public final class RegisterController extends Notifiable {
         if(TextUtils.isEmpty(identifier) || TextUtils.isEmpty(password) || TextUtils.isEmpty(email) || TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName)){
             Toast.makeText(context, "Please fill in all the details!", Toast.LENGTH_SHORT).show();
         }
+        // TODO match email textfield with an email regular expression
         else{
             Utils.getInstance().registerRequest(identifier,password,email,firstName,lastName,this);
         }
