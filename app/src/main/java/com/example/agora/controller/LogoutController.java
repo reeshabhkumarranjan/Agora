@@ -3,6 +3,7 @@ package com.example.agora.controller;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.widget.Toast;
 
 import com.example.agora.model.Utils;
 import com.example.agora.view.LoginActivity;
@@ -19,6 +20,7 @@ public final class LogoutController extends Notifiable {
     }
 
     public void requestLogout(){
+        Toast.makeText(context, "Logged out", Toast.LENGTH_SHORT).show();
         Utils.getInstance().logoutRequest();
         Intent intent=new Intent(context,LoginActivity.class);
         context.startActivity(intent);
