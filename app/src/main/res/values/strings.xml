@@ -102,7 +102,7 @@
     <string name="agora_introduction">Agora is a library of data structures and algorithms for counting votes in elections. Agora vote is a platform where users can create elections and invite others to vote.</string>
     <string name="agora_description">Agora vote is a voting platform where users can create elections and invite friends to cast their votes.
 This application uses Agora Web API as backend application.</string>
-    <string name="agora_contribution">For contributing to the Agora Web app or reporting any issues, tap here: </string>
+    <string name="agora_contribution">For contributing to the Agora Web app or reporting any issues, tap <a href='https://gitlab.com/aossie/Agora-web-frontend'>here</a> </string>
     <string name="agora_maintenance">Agora &amp; Agora Vote is maintained by AOSSIE, Australian Open Source Software Innovation and Education and all its contributors.</string>
 
     
