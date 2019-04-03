@@ -99,6 +99,14 @@
     <string name="title_activity_edit_profile">EditProfile</string>
     <string name="title_activity_register">Register</string>
     <string name="title_activity_vote">Vote</string>
+    <string name="agora_introduction">Agora is a library of data structures and algorithms for counting votes in elections.</string>
+    <string name="agora_description">Agora vote is a voting platform where users can create elections and invite friends to cast their votes.
+This application uses Agora Web API as backend application.</string>
+    <string name="agora_contribution">For contributing to the Agora Web app or reporting any issues, tap here: </string>
+    <string name="agora_maintenance">Agora &amp; Agora Vote is maintained by AOSSIE, Australian Open Source Software Innovation and Education and all its contributors.</string>
+
+    
+    <!--For testing purposes-->
     <string name="medium_text">
         This is really a lot of text. But still manageable amount of text.
         So this was written by me, to test if the textview shows an ellepsis (...) at the end.
