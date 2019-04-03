@@ -9,6 +9,20 @@
     tools:showIn="@layout/activity_register"
     android:background="@color/colorBackground">
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="@android:dimen/notification_large_icon_width"
+        android:layout_height="@android:dimen/notification_large_icon_height"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/usernameEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/agora_logo" />
+
     <EditText
         android:id="@+id/usernameEditText"
         style="@style/edit_text"
