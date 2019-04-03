@@ -3,6 +3,7 @@ package com.example.agora.controller;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.example.agora.model.Utils;
@@ -15,7 +16,21 @@ public final class LoginController extends Notifiable  {
     }
 
     public void requestLogin(String username, String password){
-        Utils.getInstance().signInRequest(username,password,this);
+
+        if (TextUtils.isEmpty(username) && TextUtils.isEmpty(password)){
+            Toast.makeText(context, "Fill in something first!", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(username)){
+            Toast.makeText(context, "Fill in the username!", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(TextUtils.isEmpty(password)){
+            Toast.makeText(context, "Fill in the password!", Toast.LENGTH_SHORT).show();
+        }
+
+        else{
+            Utils.getInstance().signInRequest(username,password,this);
+        }
     }
 
     @Override

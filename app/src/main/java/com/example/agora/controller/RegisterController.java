@@ -2,6 +2,7 @@ package com.example.agora.controller;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.example.agora.model.Utils;
@@ -14,7 +15,13 @@ public final class RegisterController extends Notifiable {
     }
 
     public void requestRegister(String identifier, String password, String email, String firstName, String lastName){
-        Utils.getInstance().registerRequest(identifier,password,email,firstName,lastName,this);
+
+        if(TextUtils.isEmpty(identifier) || TextUtils.isEmpty(password) || TextUtils.isEmpty(email) || TextUtils.isEmpty(firstName) || TextUtils.isEmpty(lastName)){
+            Toast.makeText(context, "Please fill in all the details!", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Utils.getInstance().registerRequest(identifier,password,email,firstName,lastName,this);
+        }
     }
 
     @Override
