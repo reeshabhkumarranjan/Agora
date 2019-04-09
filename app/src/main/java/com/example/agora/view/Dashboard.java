@@ -119,10 +119,6 @@ public class Dashboard extends AppCompatActivity
             Intent intent = new Intent(Dashboard.this, About.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
