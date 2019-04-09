@@ -10,11 +10,11 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/usernameTextInputLayout"
-        android:layout_width="395dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="128dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="64dp"
         app:hintTextAppearance="@style/text_input_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,11 +28,11 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/emailTextInputLayout"
-        android:layout_width="395dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="64dp"
         app:hintTextAppearance="@style/text_input_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,11 +46,11 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/firstNameTextInputLayout"
-        android:layout_width="395dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="64dp"
         app:hintTextAppearance="@style/text_input_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,11 +64,11 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/lastNameTextInputLayout"
-        android:layout_width="395dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="64dp"
         app:hintTextAppearance="@style/text_input_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
