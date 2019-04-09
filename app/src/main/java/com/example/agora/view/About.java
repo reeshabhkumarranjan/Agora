@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.agora.R;
 
@@ -31,8 +32,10 @@ public class About extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Toast.makeText(About.this, "Please use our Gitter Channels to communicate with us.", Toast.LENGTH_SHORT).show();
+                Uri uri = Uri.parse("https://gitter.im/aossie/home");
+                Intent intent=new Intent(Intent.ACTION_VIEW,uri);
+                startActivity(intent);
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -51,6 +54,7 @@ public class About extends AppCompatActivity {
         learnMoreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(About.this, "This is the repository for Agora", Toast.LENGTH_SHORT).show();
                 // thanks to https://stackoverflow.com/a/4930319/5394180
                 Uri uri = Uri.parse("https://gitlab.com/aossie/Agora/");
                 Intent intent=new Intent(Intent.ACTION_VIEW,uri);
