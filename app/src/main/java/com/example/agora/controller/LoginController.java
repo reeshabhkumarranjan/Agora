@@ -29,6 +29,7 @@ public final class LoginController extends Notifiable  {
         }
 
         else{
+            Toast.makeText(context, "Please wait", Toast.LENGTH_SHORT).show();
             Utils.getInstance().signInRequest(username,password,this);
         }
     }
